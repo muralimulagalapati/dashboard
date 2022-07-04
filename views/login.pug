@@ -1,0 +1,41 @@
+doctype html
+html
+    head
+        title HP Education Analysis
+        link(rel="stylesheet" href="styles/vendor-aa67210ead.css")
+        link(rel="stylesheet" href="assets/chartist.min.css")
+        link(rel="stylesheet" href="assets/morris.css")
+        link(rel="stylesheet" href="styles/app-fe96e7be2d.css")
+        link(rel="stylesheet" href="styles/style.css")
+    body
+        header
+            .page-top.clearfix(scroll-position="scrolled" max-height="50")
+                a(href="#/dashboard" class="al-logo clearfix")
+                    span HP
+                    | Data
+
+        .body-bg
+        main
+            aside.al-sidebar
+
+
+            .chart-main.al-main
+                .al-content
+                    section.chartist
+                    .col-md-12
+                        .panel
+                            .panel-heading
+                                h3.panel-title Login to view the analytics
+                            .panel-body
+                                form(action="/login" method="POST")
+                                    label Username
+                                        input.form-control(type="text" placeholder="Username" name="user_name")
+                                    label Password
+                                        input.form-control(type="password" placeholder="Password", name="password")
+
+                                    input.btn.btn-primary(type="submit" value="Login")
+
+        footer.al-footer.clearfix
+            .al-footer-right Created with&nbsp;
+                i(class="ion-heart")
+                | in India

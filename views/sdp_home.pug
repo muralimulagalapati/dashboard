@@ -1,0 +1,156 @@
+doctype html
+html
+    head
+        title HP Education Analysis
+        link(rel="stylesheet" href="styles/vendor-aa67210ead.css")
+        link(rel="stylesheet" href="styles/app-fe96e7be2d.css")
+        link(rel="stylesheet" href="styles/style.css")
+        link(rel="stylesheet" href="styles/light-theme.css")
+        link(rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all")
+    body.blur-theme.light
+        header
+            .page-top.clearfix(scroll-position="scrolled" max-height="50")
+                .col-xs-3
+                    .inline-block
+                        img(src="/assets/img/himachal-pradesh-sarkar.png")
+                    .inline-block
+                        img(src="/assets/img/samarth-logo-v9---lowres.png")
+                    .inline-block
+                        img(src="/assets/img/ssabglogo.jpg")
+                .col-xs-6.text-center
+                    h1 School Development Plan Dashboard
+
+        .body-bg
+        main
+            aside.al-sidebar
+                .text-center
+                    .btn.btn-default.js-reset Reset Filters
+                ul.al-sidebar-list
+                    li
+                        h4 District
+                        select(class="form-control js-filter" data-cat="upper" data-type="district")
+                    li
+                        h4 Block
+                        select(class="form-control js-filter" data-cat="upper" data-type="block")
+                    li
+                        h4 Cluster
+                        select(class="form-control js-filter" data-cat="upper" data-type="cluster")
+                    li
+                        h4 School
+                        select(class="form-control js-filter" data-cat="upper" data-type="school_name")
+                    li
+                        h4 School Type
+                        select(class="form-control js-iFilter"  data-type="school_type")
+                            option(value="") All
+                            option(value="5") Primary only (Class 1-5)
+                            option(value="8") Upper Primary only (Class 6-8)
+                            option(value="12") Upper Primary + Secondary/ Senior Secondary (Class 6-10 OR Class 6-12)
+                    li
+                        h4 Summer/Winter
+                        select(class="form-control js-iFilter" data-cat="lower" data-type="summer_winter")
+                            option(value="") All
+                            option(value="Summer") Summer
+                            option(value="Winter") Winter
+                ul.al-sidebar-list.js-schools
+
+            .chart-main.al-main
+                .al-content
+                    .col-md-12
+                        ul.nav.nav-tabs
+                            li.uib-tab.nav-item.active
+                                a.nav-link(href="#" aria-controls="compliance" role="tab" data-toggle="tab") Compliance
+                            li.uib-tab.nav-item
+                                a.nav-link(href="#" aria-controls="monitoring" role="tab" data-toggle="tab") Monitoring
+                        .tab-content
+                            .tab-pane.active
+                                .panel.panel-blur
+                                    .panel-heading
+                                        h3.panel-title 1. Percentage Completion of SDP
+                                    .panel-body
+                                        div(id="sdpstatus" style="width: 100%; height: 480px;")
+                                        .preloader.js-loader.js-subjectStack
+                                            div
+
+                                .panel.panel-blur
+                                    .panel-heading
+                                        h3.panel-title 2. Total Schools that have filled eSDP, by school type
+                                    .panel-body
+                                        .ct-chart(id="gradeStack" style="width: 100%; height: 400px;")
+                                        .preloader.js-loader.js-gradeStack
+                                            div
+                                .panel.panel-blur
+                                    .panel-heading
+                                        h3.panel-title 3. Type of Targets Set
+                                    .panel-body
+                                        .ct-chart(id='gradePie' style="width: 100%; height: 700px;")
+                                        .preloader.js-loader.js-gradePie
+                                            div
+                                .panel.panel-blur
+                                    .panel-heading
+                                        h3.panel-title 4. Resource Requests
+                                    .panel-body
+                                        div(id="resourceStack" style="width: 100%; height: 480px;")
+                                        .preloader.js-loader.js-resourceStack
+                                            div
+                                    .panel.panel-blur
+                                        .panel-heading
+                                            h3.panel-title 5. Compliance with SA1 Progress Check-In
+                                        .panel-body
+                                            .ct-chart(id="targetStatus" style="width: 100%; height: 400px;")
+                                            .preloader.js-loader.js-targetStatus
+                                                div
+                            .tab-pane
+                                .panel.panel-blur
+                                    .panel-heading
+                                        h3.panel-title 6. Overall Status of Target Completion
+                                    .panel-body
+                                        .ct-chart(id="targetStatusValue" style="width: 100%; height: 700px;")
+                                        .preloader.js-loader.js-targetStatusValue
+                                            div
+                                .panel.panel-blur
+                                    .panel-heading
+                                        h3.panel-title 7. Status of Target Completion per District/Block/School
+                                    .panel-body
+                                        .ct-chart(id="targetTotal" style="width: 100%; height: 400px;")
+                                        .preloader.js-loader.js-targetTotal
+                                            div
+                                .panel.panel-blur
+                                    .panel-heading
+                                        h3.panel-title 8. Status of Target Completion for each Type
+                                    .panel-body
+                                        .ct-chart(id="targetStatusCategory" style="width: 100%; height: 400px;")
+                                        .preloader.js-loader.js-targetStatusCategory
+                                            div
+                        .tab-pane.active.js-tableBar
+                            .panel.panel-blur
+                                h3.panel-heading 9. Target Data Table(Applicable at School Level)
+                                .panel-body
+                                    table.js-table.table
+                                        tr
+                                            th UDISE School
+                                            th Target Type
+                                            th Sub-Target Type
+                                            th Action I will take by SA1
+                                            th Action I will take by SA2
+                                            th SMC Member Incharge
+                                            th Method for me to evaluate success of my plan
+                                            th Status
+                                            th Resource Requirements<br>Human<br>Physical<br>Financial
+            footer.al-footer.clearfix
+                .al-footer-right Created by Samarth
+            .modal.fade.js-modal
+                .modal-dialog.modal-lg
+                    .modal-content
+                        .modal-header
+                            button(type="button" class="close js-close"  aria-label="Close")
+                                em(class="ion-ios-close-empty sn-link-close")
+                            h4.modal-title Competency Category Drilldown
+                        .modal-body
+                            div(id="catDrill" style="width: 640px; height: 300px;")
+                            .preloader.js-loader.js-catDrill
+                                div
+        //div( id="preloader")
+            div
+        script(src="js/vendor-727ff9d081.js")
+        script(src="https://www.amcharts.com/lib/3/plugins/export/export.min.js")
+        script(src="js/sdpapp.js")
